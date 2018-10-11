@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=800" />
+<title>Change Paces - a simple but meaningful web game / Luc Amstrong</title>
+<link href='http://fonts.googleapis.com/css?family=Lobster|Special+Elite|Chewy|Audiowide|Luckiest+Guy' rel='stylesheet' type='text/css'>
+
+<style>
+.font1 {font-family: 'Lobster', 'cursive'; -webkit-text-stroke: 1px #111; color: #fff;text-shadow:
+       6px 4px 0 #000,-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+.font2 {font-family: 'Special Elite', 'cursive';-webkit-text-stroke: 1px #111;color: #fff;text-shadow:
+       6px 4px 0 #000,-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+.font3 {font-family: 'Chewy', 'cursive';-webkit-text-stroke: 1px #111;color: #fff;text-shadow:
+       6px 4px 0 #000,-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+.font4 {font-family: 'Audiowide', 'cursive';-webkit-text-stroke: 1px #111;color: #fff;text-shadow:
+       6px 4px 0 #000,-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+.font5 {font-family: 'Luckiest Guy', 'cursive';-webkit-text-stroke: 1px #111;color: #fff;text-shadow:
+       6px 4px 0 #000,-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;}
+       .info {font-family: 'Special Elite', 'cursive'; text-decoration: none; font-weight: bold; color: #fff;}
+       .info:hover {color: #fff;}
+       button {background: #111; }
+       button:hover {background:#333;}
+</style>
+</head>
+<body style="background: #111;">
+  <div style="position: absolute; top: 20px; z-index: 10; left: 20px; font-size: 32px; margin-bottom: 40px;"><a href="info.html" target="_blank" class="info">&#9432;</a></div>
+<div id="wrapper" style="position: relative; margin: 0 auto; width: 800px; background: url(2016-aya-shirt_for-change-paces.png) center, no-repeat 100%;">
+<div id="left" style="margin: 0 auto; width: 700px; text-align: center; height: 1000px;">
+  <h2 class="font2" style="font-size: 100px; font-weight:bold; margin-bottom: 40px;">Change</br> Paces</h2>
+<button onclick="playVid();this.onclick=null;" type="button" style="margin: 30px; padding: 10px; color: #fff; border: 3px solid #fff; border-style: dashed; font-size: 32px; border-radius: 10px; cursor:pointer;font-family: 'Special Elite', 'cursive';">Play now!</button>
+<h1 id="Speed" style="height: 20px; padding: 20px; margin: 20px; font-size: 64px;margin-top: 220px;"></h1>
+<div id="nextUpdate" style="height: 80px; padding: 20px; margin: 20px; font-size: 36px;"></div>
+
+<br>
+<audio id="video1">
+  <source src="cp-sound-edit-1.ogg" type="audio/ogg">
+  <source src="cp-sound-edit-1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="video2">
+  <source src="ultraslow.ogg" type="audio/ogg">
+  <source src="ultraslow.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="video3">
+  <source src="bumble.ogg" type="audio/ogg">
+  <source src="bumble.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="video4">
+  <source src="evenkeel.ogg" type="audio/ogg">
+  <source src="evenkeel.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="video5">
+  <source src="pitterpatter.ogg" type="audio/ogg">
+  <source src="pitterpatter.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<audio id="video6">
+  <source src="godspeed.ogg" type="audio/ogg">
+  <source src="godspeed.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div id="nextUpdate" style="color: #aaa; margin-top: 30px;"></div><div id="milliSeconds" style="font-size: 10px; color: #111;"></div>
+
+
+<script>
+var myVideo=document.getElementById("video1");
+var currentVideo=document.getElementById("video1");
+videoArray =  ["video2", "video3", "video4", "video5", "video6"];
+speedArray =  ["Ultra slow", "Bumble", "Even keel", "Pitter-patter", "Godspeed"];
+cssArray =  ["font2", "font1", "font3", "font4", "font5"];
+function playVid()
+  {
+var arrayPosition = Math.floor(Math.random() * speedArray.length);
+var randVideo = videoArray[arrayPosition];
+var currentVideo=document.getElementById(randVideo);
+myVideo.play(), setTimeout (currentVideo.play(), 12000);
+var randUm=Math.floor(Math.random()*(300000-60000+1)+60000);
+// var randUm=180000;
+var randUmNeat=Math.round(randUm/60000) + " minutes";
+setTimeout ( "playVid()", randUm );
+document.getElementById("nextUpdate").innerHTML = "for about " + randUmNeat + "! " ;
+document.getElementById("milliSeconds").innerHTML = "Or in other words " + randUm + " miliseconds!" ;
+var randSpeed = speedArray[arrayPosition];
+document.getElementById("Speed").innerHTML = randSpeed;
+var randCss = cssArray[arrayPosition];
+document.getElementById('Speed').className = randCss;
+document.getElementById('nextUpdate').className = randCss;
+}
+
+</script></div></div>
+</div>
+
+</body>
+</html>

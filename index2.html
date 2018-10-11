@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<title>Change Paces - a simple but meaningful web game</title>
+<link href='http://fonts.googleapis.com/css?family=Lobster|Special+Elite|Chewy|Audiowide|Luckiest+Guy' rel='stylesheet' type='text/css'>
+
+<style>
+.font1 {font-family: 'Lobster', 'cursive';}
+.font2 {font-family: 'Special Elite', 'cursive';}
+.font3 {font-family: 'Chewy', 'cursive';}
+.font4 {font-family: 'Audiowide', 'cursive';}
+.font5 {font-family: 'Luckiest Guy', 'cursive';}
+</style>
+</head>
+<body>
+
+<div id="left" style="float:left; width: 400px; text-align: center; ">
+<h1 id="Speed" style="height: 50px; border: 6px solid #333; padding: 20px; margin: 20px;"></h1>
+<button onclick="playVid()" type="button" style="margin: 30px; font-size: 32px;">Start Game</button>
+<br>
+<audio id="video1">
+  <source src="cp-sound-edit-1.ogg" type="audio/ogg">
+  <source src="cp-sound-edit-1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<div id="nextUpdate"></div><div id="milliSeconds" style="font-size: 10px; color: #555;"></div>
+
+
+<script>
+var myVideo=document.getElementById("video1");
+speedArray =  ["Ultra slow", "Bumble", "Even keel", "Pitter-patter", "Godspeed"];
+cssArray =  ["font1", "font2", "font3", "font4", "font5"];
+function playVid()
+  {
+  myVideo.play();
+var randUm=Math.random()*6000000;
+var randUmNeat=Math.round(randUm/36000) + " minutes";
+setTimeout ( "playVid()", randUm );
+document.getElementById("nextUpdate").innerHTML = "Next update in " + randUmNeat + "! " ;
+document.getElementById("milliSeconds").innerHTML = "Or in other words " + randUm + " miliseconds!" ;
+var randSpeed = speedArray[Math.floor(Math.random() * speedArray.length)];
+document.getElementById("Speed").innerHTML = randSpeed;
+var randCss = cssArray[Math.floor(Math.random() * speedArray.length)];
+document.getElementById('Speed').className = randCss;
+
+  }
+
+</script>
+<p><a href="index.html">Play Demo</a> | Play Real Game</p>
+</div>
+<div id="right" style="Width: 300px; float:left;font-family: Arial, Helvetica, San-Serif; margin: 20px; padding: 20px; background: #111; border: 1px solid #222; color: #ddd; border-radius: 5px;"><h2 style="margin-bottom:0px;font-variant:small-caps;" class="font2">ChangePaces.com</h2><h4 style="font-style:italic;font-size: 11px; margin-bottom:20px; padding:0;">An artful web game for everyone to play.</h4>  <div style="background: #aaa; color: #111; font-size: 12px; border-radius: 5px; padding: 20px;"><p>
+1.) Turn on your volume </br></br>
+2.) Leave your browser window on and active.</br></br>
+3.) When you hear "Change paces" you change the speed at which you exist.</br></br>
+4.) Your screen will indicate the appropriate speed you are to utilize to calibrate your body and mind.</p>
+
+</p><p>Here are a few to get you started:
+Ultra slow, bumble, even keel, pitter-patter, Godspeed.  The estimated times are not accurate, but do serve to provide another altering factor to your understanding of time.</p> <p>
+
+<strong>Question:</strong> What would you pay to play this game? <a href="http://changepaces.com/donation.html">[ Answer link ]</a></br></br> maybe over the top. - by <a href="http://thatsluke.com">thatsluke</a></p></div>
+</div>
+</body>
+</html>
