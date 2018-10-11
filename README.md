@@ -1,1 +1,3 @@
 # ChangePaces
+
+Change Paces is an experimental, arty game that blends tech and real life. When you press play, the game provides you with prompts... different paces for you operate during your life. It's meant to be an experimental exercise, a self directed ritual. A kind of meditation or awareness you are building. If you can understand how your pace effects your experience, then you've got another lever in a self directed, autonomous life. So go ahead, think about how the pressures of life push you through this exercise on a regular basis. Test the waters for yourself, choose a different pace and take back the way you experience time.
